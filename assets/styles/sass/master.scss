@@ -3,18 +3,37 @@ $primary-dark: #066c5a;
 $button-text: #ffffff;
 $shadow-color: rgba(20, 10, 2, 0.3);
 $simple-background: #ffffff;
+$placeholder-color: #cecece;
+
+$border-raduis: 7px;
 
 $primary-font-size: 1rem;
 $super-big-font-size: 4.2rem;
 $bigger-font-size: 1.2rem;
 $smaller-font-size: 0.8rem;
 $medium-font-size: 1.456rem;
+$placeholder-font-size: 0.72rem;
 
 $boldFont: "ProximaNovaBold";
 $regularFont: "ProximaNovaRegular";
 $semiboldFont: "ProximaNovaSemibold";
 
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:700');
+// Breakpoints
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+// Media Queries
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2)";
+
+@import url( 'https://fonts.googleapis.com/css?family=PT+Sans:700');
 
 @font-face {
   font-family: "ProximaNovaBold";
@@ -35,18 +54,21 @@ $semiboldFont: "ProximaNovaSemibold";
   font-size: 25px;
 }
 
-body {
-  font-size: $primary-font-size;
-  font-family: $regularFont,  sans-serif;
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }
 
+body {
+  font-size: $primary-font-size;
+  font-family: $regularFont, sans-serif;
+}
 // HEADER component
-
 .header {
   box-shadow: 0 6px 16px $shadow-color;
   text-align: center;
-  padding: 40px 0 85px 0;
-  background-image: url(../../../images/cover-image.png);
+  padding: 40px 0 85px;
+  background-image: url("../../../images/cover-image.png");
   background-position: center bottom;
   background-repeat: no-repeat;
 }
@@ -54,7 +76,7 @@ body {
 .header__title {
   font-weight: bold;
   font-size: 4.2rem;
-  margin: 30px auto 0 auto;
+  margin: 30px auto 0;
   text-transform: uppercase;
   font-family: 'PT Sans', sans-serif;
   font-weight: bold;
@@ -66,37 +88,39 @@ body {
   font-size: $bigger-font-size;
   font-family: $regularFont;
 }
-
 // DIVIDER component
-
 .divider--primary {
   border-top: 1px solid $primary;
   width: 67%;
-  margin: 20px auto 40px auto;
+  margin: 20px auto 40px;
 }
 
 .divider--complex {
-  background-image: url(../../../images/zerna-01.svg);
-  background-repeat: no-repeat;
-  width: 23px;
+  width: 43px;
   height: 23px;
-  margin: 0 auto;
-  padding: 0 12px 0 12px;
+  margin: 30px auto;
+  padding: 0 12px;
+  position: relative;
+  background-image: url("../../../images/zerna-01.svg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: 23px;
+  background-color: #e1f6f2;
 }
 
-// .divider--complex::before, .divider--complex::after  {
-//   content: "";
-//   border-top: 1px solid $primary;
-//   display: inline-block;
-//   width: 160px;
-// }
-//
-// .divider--complex::before {
-//   margin-left: -50%;
-// }
+.divider--complex::before {
+  content: "";
+  border-top: 1px solid #066c5a;
+  display: inline-block;
+  width: 320px;
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 
 // INFO component
-
 .info::after {
   content: "";
   width: 100%;
@@ -106,6 +130,7 @@ body {
 
 .info__logo {
   float: left;
+  width: 170px;
 }
 
 .info__contacts {
@@ -117,14 +142,12 @@ body {
 .info__contacts-element {
   margin: 0;
 }
-
 // BUTTON component
-
 .button {
   background-color: $primary;
   border: none;
   border-bottom: 5px solid $primary-dark;
-  border-radius: 7px;
+  border-radius: $border-raduis;
   padding: 20px 30px;
   color: $button-text;
   font-size: $bigger-font-size;
@@ -137,14 +160,12 @@ body {
 .header .button {
   margin-top: 85px;
 }
-
 // CONTAINER component
-
 .container--main {
   background-color: rgba($primary, 0.12);
 }
-
 // CONTENT component
+
 .content {
   padding-top: 120px;
 }
@@ -169,70 +190,101 @@ body {
   text-align: center;
   font-size: $medium-font-size;
   color: $primary-dark;
-
 }
 
-// .content__square-wrap {
-//   display: flex;
-//   flex-direction: row;
-// }
+.content__square-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .content__square {
   background: $simple-background;
-  box-shadow: 0 0 0 10px $simple-background, 0 0 25px 5px $shadow-color;
-  border: 1px solid $primary-dark;
-  padding-top: 68px;
-  margin-top: 50px;
-  margin-bottom: -99999px;
-    padding-bottom: 99999px;
-
+  box-shadow: inset 0 0 0 10px $simple-background, inset 0 0 0 11px $primary-dark, 0 0 25px 5px $shadow-color;
+  padding: 50px 15px;
+  height: 100%;
+  flex-grow: 1;
+  flex-basis: 100%;
 }
 
-// ROUND-ICON component
+.content__square--spacing {
+  margin-top: 50px;
+}
 
+
+.content__big-heading {
+  font-size: $super-big-font-size;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+// ROUND-ICON component
 .round-icon {
   margin-top: 70px;
+  float: none;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
 }
-
-// .round-icon__wrap {
-//   width: 26%;
-//   margin: 0 auto;
-// }
-
-// .round-icon__border {
-//   width: 100%;
-//   height: 0;
-//   padding-bottom: 100%;
-//   border: 1px solid $primary-dark;
-//   border-radius: 50%;
-//   text-align: center;
-//   position: relative;
-// }
 
 .round-icon__icon {
   width: 26%;
   margin: 0 auto;
   display: block;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
 }
 
 .round-icon__caption {
   text-align: center;
   margin-top: 20px;
 }
-
 // SLIDER component
-
 .slider {
   width: 100%;
   background: $simple-background;
   box-shadow: 0 0 18px 5px $shadow-color;
-  padding: 25px 0 10px 0;
+  padding: 25px 0 10px;
 }
 
 .slider .container {
   padding: 0;
+}
+// FORM component
+.feedback-form__element {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid $primary-dark;
+  border-radius: $border-raduis;
+}
+
+.feedback-form__element:focus {
+  outline: none;
+  box-shadow: 0 0 15px 0 $primary-dark;
+}
+
+.feedback-form__submit {
+  text-align: center;
+}
+
+:-moz-placeholder,
+:-ms-input-placeholder,
+::-moz-placeholder,
+::-webkit-input-placeholder {
+  color: $placeholder-color;
+  font-size: $placeholder-font-size;
+}
+
+.footer {
+  box-shadow: 0 0 15px 0 $shadow-color;
+  background-image: url(../../../images/cover-image.png);
+  background-position: center center;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  padding: 240px 0 35px 0;
+}
+
+@media #{$mq-retina} {
+  :root {
+    font-size: 16px;
+  }
 }
