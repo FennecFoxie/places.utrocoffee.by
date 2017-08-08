@@ -1,3 +1,5 @@
+
+// Colors
 $primary: #08b595;
 $primary-dark: #066c5a;
 $button-text: #ffffff;
@@ -5,8 +7,12 @@ $shadow-color: rgba(20, 10, 2, 0.3);
 $simple-background: #ffffff;
 $placeholder-color: #cecece;
 
-$border-raduis: 7px;
 
+//Common parametres
+$border-raduis: 7px;
+$text-align: left,center,right;
+
+//Font sizes
 $primary-font-size: 1rem;
 $super-big-font-size: 4.2rem;
 $bigger-font-size: 1.2rem;
@@ -14,23 +20,24 @@ $smaller-font-size: 0.8rem;
 $medium-font-size: 1.456rem;
 $placeholder-font-size: 0.72rem;
 
+//font-families
 $boldFont: "ProximaNovaBold";
 $regularFont: "ProximaNovaRegular";
 $semiboldFont: "ProximaNovaSemibold";
 
 // Breakpoints
-$bp-small: 48em; // 768px
-$bp-medium: 64em; // 1024px
-$bp-large: 85.375em; // 1366px
-$bp-xlarge: 120em; // 1920px
-$bp-xxlarge: 160em; // 2560px
+$bp-small: 768px;
+$bp-medium: 1024px;
+$bp-large: 1366px;
+$bp-xlarge: 1920px;
+$bp-xxlarge: 2560px;
 
 // Media Queries
-$mq-small: "(min-width: #{$bp-small})";
-$mq-medium: "(min-width: #{$bp-medium})";
-$mq-large: "(min-width: #{$bp-large})";
-$mq-xlarge: "(min-width: #{$bp-xlarge})";
-$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-small: "(max-width: #{$bp-small})";
+$mq-medium: "(max-width: #{$bp-medium})";
+$mq-large: "(max-width: #{$bp-large})";
+$mq-xlarge: "(max-width: #{$bp-xlarge})";
+$mq-xxlarge: "(max-width: #{$bp-xxlarge})";
 $mq-retina: "(-webkit-min-device-pixel-ratio: 2)";
 
 @import url( 'https://fonts.googleapis.com/css?family=PT+Sans:700');
@@ -61,7 +68,8 @@ $mq-retina: "(-webkit-min-device-pixel-ratio: 2)";
 
 body {
   font-size: $primary-font-size;
-  font-family: $regularFont, sans-serif;
+  font-family: $regularFont, sans-serif
+  min-width: 320px;
 }
 // HEADER component
 .header {
@@ -71,6 +79,7 @@ body {
   background-image: url("../../../images/cover-image.png");
   background-position: center bottom;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header__title {
@@ -276,15 +285,37 @@ body {
 
 .footer {
   box-shadow: 0 0 15px 0 $shadow-color;
+
   background-image: url(../../../images/cover-image.png);
   background-position: center center;
-  background-size: 90%;
+  background-size: cover;
   background-repeat: no-repeat;
+
   padding: 240px 0 35px 0;
+}
+
+@for $i from 1 through length($text-align){
+    .footer__contact:nth-of-type(#{$i}){
+        text-align: nth($text-align, $i);
+    }
 }
 
 @media #{$mq-retina} {
   :root {
     font-size: 16px;
+  }
+}
+
+@media #{$mq-small} {
+  // :root {
+  //   font-size: 25px;
+  // }
+
+  .round-icon__icon {
+    width: 56%;
+  }
+
+  .footer .footer__contact {
+    text-align: center;
   }
 }

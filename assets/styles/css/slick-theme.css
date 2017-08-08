@@ -25,7 +25,6 @@
   color: transparent;
   top: 50%;
   -webkit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
   padding: 0;
   border: none;
@@ -54,6 +53,7 @@
     -moz-osx-font-smoothing: grayscale; }
 
 .slick-prev {
+  display: none;
   left: -25px; }
   [dir="rtl"] .slick-prev {
     left: auto;
@@ -64,6 +64,7 @@
       content: "→"; }
 
 .slick-next {
+  display: none;
   right: -25px; }
   [dir="rtl"] .slick-next {
     left: -25px;
