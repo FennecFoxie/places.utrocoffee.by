@@ -25,7 +25,7 @@
               <div class="info__contacts">
                 <p class="info__contacts-element">utrocoffee.by</p>
                 <p class="info__contacts-element">+375 29 167 72 02</p>
-                <p class="info__contacts-element">info@utrocoffee.by</p>
+                <p class="info__contacts-element">mesto@utrocoffee.by</p>
               </div>
             </div>
           </div>
@@ -126,28 +126,28 @@
         </div>
 
         <div class="row content__square-wrap">
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 content__square--spacing">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 content__square--spacing">
             <div class="content__square">
               <p class="content__number-heading">1</p>
               <p class="content__text">Вы находите подходящее на ваш взгляд место для кофейни UTRO</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 content__square--spacing">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 content__square--spacing">
             <div class="content__square">
               <p class="content__number-heading">2</p>
               <p class="content__text">Оставляете заявку с описанием на сайте или звоните нам</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6  content__square--spacing">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12  content__square--spacing">
             <div class="content__square">
               <p class="content__number-heading">3</p>
               <p class="content__text">Наша команда выезжает к вам для оценки места</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6  content__square--spacing">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12  content__square--spacing">
             <div class="content__square">
               <p class="content__number-heading">4</p>
               <p class="content__text">После заключения договора аренды, вы получаете свое вознаграждение в зависимости от оценки места</p>
@@ -156,7 +156,7 @@
         </div>
       </div>
 
-      <div class="content" id="feedback-form">
+      <div class="content" id="feedback-form" type="multipart/form-data">
         <div class="row">
           <div class="col-lg-12">
             <h1 class="content__big-heading">Оставьте заявку</h1>
@@ -167,15 +167,23 @@
 
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-centered">
-            <form action="" class="feedback-form" data-toggle="validator">
+            <form action="" class="feedback-form" data-toggle="validator" method="POST">
 
               <div class="feedback-form__element-wrap form-group">
-                <input type="text" placeholder="Ваше имя" class="feedback-form__element" required data-required-error="Пожалуйста, укажите свое имя">
+                <input type="text"
+                      name="name"
+                      placeholder="Ваше имя"
+                      class="feedback-form__element"
+                      required
+                      data-required-error="Пожалуйста, укажите свое имя">
                 <div class="help-block with-errors"></div>
               </div>
 
               <div class="feedback-form__element-wrap  form-group">
-                <input type="text" placeholder="Ваш телефон" class="feedback-form__element feedback-form__element--phone"
+                <input type="text"
+                name="phone"
+                placeholder="Ваш телефон"
+                class="feedback-form__element feedback-form__element--phone"
                 required
                 data-required-error="Пожалуйста, укажите свой номер телефона"
                 pattern="^\+375 \((25|29|33|44)\) [0-9]{3}-[0-9]{2}-[0-9]{2}$"
@@ -183,9 +191,18 @@
                 <div class="help-block with-errors"></div>
               </div>
 
-              <div class="feedback-form__element-wrap form-group">
-                <textarea name="" id="" rows="10" placeholder="Описание места" class="feedback-form__element feedback-form__element--fixed-height" required data-required-error="Пожалуйста, опишите найденное вами место" data-minlength="30" data-minlength-error="Описание должно содержать не менее 30 символов."></textarea>
+              <div class="feedback-form__element-wrap form-group" name="photo">
+                <textarea name="description"
+                          rows="10"
+                          placeholder="Описание места"
+                          class="feedback-form__element feedback-form__element--fixed-height"
+                          required data-required-error="Пожалуйста, опишите найденное вами место" data-minlength="30"
+                          data-minlength-error="Описание должно содержать не менее 30 символов."></textarea>
                 <div class="help-block with-errors"></div>
+              </div>
+
+              <div class="feedback-form__element-wrap form-group">
+                <!-- <input type="file" class="feedback-form__element--photo" name="photo"> -->
               </div>
 
               <div class="feedback-form__submit feedback-form__element-wrap">
@@ -208,11 +225,27 @@
               utrocoffee.by
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 footer__contact">
-              info@utrocoffee.by
+              mesto@utrocoffee.by
             </div>
           </div>
         </div>
       </footer>
+
+
+ <!-- <button onclick="$('modal--success').modal('show');">asdf</button> -->
+
+<div class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content modal--success">
+      <h1>Спасибо!</h1>
+        <p>
+          Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.
+        </p>
+
+        <button class="button button--close-modal">Закрыть</button>
+    </div>
+  </div>
+</div>
 
 
 
@@ -222,6 +255,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+    <script src="assets/js/bootstrap.min.js" charset="utf-8"></script>
     <script src="assets/js/validator.js" charset="utf-8"></script>
     <script src="assets/js/slick.min.js" charset="utf-8"></script>
     <script src="assets/js/jquery.maskedinput.min.js" charset="utf-8"></script>

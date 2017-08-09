@@ -34,13 +34,31 @@ $(document).ready(function() {
   });
 
   $('.feedback-form').validator().on('submit', function(e) {
-    if (e.isDefaultPrevented()) {
-      // handle the invalid form...
-    } else {
-      alert('OK');
-    }
+    e.preventDefault();
+      $.ajax({
+        async: "true",
+        type: 'post',
+        url: 'send.php',
+        data: $('.feedback-form').serialize(),
+        // cache: false,
+        // contentType: false,
+        // processData: false,
+        success: function(resp) {
+          if (resp == 'Success') {
+            $('.feedback-form__element').each(function(){
+              $(this).val("");
+            })
+            $('.modal').modal('show');
+          }
+        }
+      });
+    return false;
   });
 
+
+  $('.button--close-modal').on('click', function(){
+    $('.modal').modal('hide');
+  });
 
   //smooth scroll to anchor
   $('a[href*="#"]:not([href="#"])').click(function() {

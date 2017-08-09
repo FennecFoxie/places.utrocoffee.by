@@ -20,7 +20,8 @@
 
 body {
   font-size: 1rem;
-  font-family: "ProximaNovaRegular", sans-serif; }
+  font-family: "ProximaNovaRegular", sans-serif;
+  min-width: 320px; }
 
 .header {
   -webkit-box-shadow: 0 6px 16px rgba(20, 10, 2, 0.3);
@@ -216,11 +217,11 @@ body {
 .footer {
   -webkit-box-shadow: 0 0 15px 0 rgba(20, 10, 2, 0.3);
           box-shadow: 0 0 15px 0 rgba(20, 10, 2, 0.3);
-  background-image: url(../../../images/cover-image.png);
+  background-image: url("../../../images/cover-image.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 240px 0 35px 0; }
+  padding: 240px 0 35px; }
 
 .footer__contact:nth-of-type(1) {
   text-align: left; }
@@ -230,6 +231,14 @@ body {
 
 .footer__contact:nth-of-type(3) {
   text-align: right; }
+
+.modal--success {
+  padding: 40px 10%;
+  text-align: center;
+  border-radius: 7px; }
+
+.button--close-modal {
+  margin-top: 20px; }
 
 @media (-webkit-min-device-pixel-ratio: 2) {
   :root {

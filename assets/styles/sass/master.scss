@@ -1,57 +1,41 @@
-
 // Colors
 $primary: #08b595;
 $primary-dark: #066c5a;
 $button-text: #ffffff;
 $shadow-color: rgba(20, 10, 2, 0.3);
 $simple-background: #ffffff;
-$placeholder-color: #cecece;
-
-
-//Common parametres
+$placeholder-color: #cecece; //Common parametres
 $border-raduis: 7px;
-$text-align: left,center,right;
-
-//Font sizes
+$text-align: left,center,right; //Font sizes
 $primary-font-size: 1rem;
 $super-big-font-size: 4.2rem;
 $bigger-font-size: 1.2rem;
 $smaller-font-size: 0.8rem;
 $medium-font-size: 1.456rem;
-$placeholder-font-size: 0.72rem;
-
-//font-families
-$boldFont: "ProximaNovaBold";
-$regularFont: "ProximaNovaRegular";
-$semiboldFont: "ProximaNovaSemibold";
-
-// Breakpoints
+$placeholder-font-size: 0.72rem; //font-families
+$bold-font: "ProximaNovaBold";
+$regular-font: "ProximaNovaRegular";
+$semibold-font: "ProximaNovaSemibold"; // Breakpoints
 $bp-small: 768px;
 $bp-medium: 1024px;
 $bp-large: 1366px;
 $bp-xlarge: 1920px;
-$bp-xxlarge: 2560px;
-
-// Media Queries
+$bp-xxlarge: 2560px; // Media Queries
 $mq-small: "(max-width: #{$bp-small})";
 $mq-medium: "(max-width: #{$bp-medium})";
 $mq-large: "(max-width: #{$bp-large})";
 $mq-xlarge: "(max-width: #{$bp-xlarge})";
 $mq-xxlarge: "(max-width: #{$bp-xxlarge})";
 $mq-retina: "(-webkit-min-device-pixel-ratio: 2)";
-
 @import url( 'https://fonts.googleapis.com/css?family=PT+Sans:700');
-
 @font-face {
   font-family: "ProximaNovaBold";
   src: url("../../fonts/Proxima-Nova-Bold_0.otf");
 }
-
 @font-face {
   font-family: "ProximaNovaSemibold";
   src: url("../../fonts/Proxima-Nova-Semibold_0.otf");
 }
-
 @font-face {
   font-family: "ProximaNovaRegular";
   src: url("../../fonts/Proxima-Nova-Regular_0.otf");
@@ -68,10 +52,11 @@ $mq-retina: "(-webkit-min-device-pixel-ratio: 2)";
 
 body {
   font-size: $primary-font-size;
-  font-family: $regularFont, sans-serif
+  font-family: $regular-font, sans-serif;
   min-width: 320px;
 }
 // HEADER component
+
 .header {
   box-shadow: 0 6px 16px $shadow-color;
   text-align: center;
@@ -95,9 +80,10 @@ body {
 
 .header__text {
   font-size: $bigger-font-size;
-  font-family: $regularFont;
+  font-family: $regular-font;
 }
 // DIVIDER component
+
 .divider--primary {
   border-top: 1px solid $primary;
   width: 67%;
@@ -128,8 +114,8 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
 // INFO component
+
 .info::after {
   content: "";
   width: 100%;
@@ -152,6 +138,7 @@ body {
   margin: 0;
 }
 // BUTTON component
+
 .button {
   background-color: $primary;
   border: none;
@@ -170,6 +157,7 @@ body {
   margin-top: 85px;
 }
 // CONTAINER component
+
 .container--main {
   background-color: rgba($primary, 0.12);
 }
@@ -186,7 +174,7 @@ body {
 .content__heading {
   text-align: center;
   text-transform: uppercase;
-  font-family: $semiboldFont;
+  font-family: $semibold-font;
   font-size: $medium-font-size;
   margin: 0;
 }
@@ -220,7 +208,6 @@ body {
   margin-top: 50px;
 }
 
-
 .content__big-heading {
   font-size: $super-big-font-size;
   text-transform: uppercase;
@@ -228,6 +215,7 @@ body {
   font-weight: bold;
 }
 // ROUND-ICON component
+
 .round-icon {
   margin-top: 70px;
   float: none;
@@ -247,6 +235,7 @@ body {
   margin-top: 20px;
 }
 // SLIDER component
+
 .slider {
   width: 100%;
   background: $simple-background;
@@ -258,6 +247,7 @@ body {
   padding: 0;
 }
 // FORM component
+
 .feedback-form__element {
   width: 100%;
   padding: 15px;
@@ -285,19 +275,26 @@ body {
 
 .footer {
   box-shadow: 0 0 15px 0 $shadow-color;
-
-  background-image: url(../../../images/cover-image.png);
+  background-image: url("../../../images/cover-image.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  padding: 240px 0 35px 0;
+  padding: 240px 0 35px;
+}
+@for $i from 1 through length($text-align) {
+  .footer__contact:nth-of-type(#{$i}) {
+    text-align: nth($text-align, $i);
+  }
 }
 
-@for $i from 1 through length($text-align){
-    .footer__contact:nth-of-type(#{$i}){
-        text-align: nth($text-align, $i);
-    }
+.modal--success {
+  padding: 40px 10%;
+  text-align: center;
+  border-radius: $border-raduis;
+}
+
+.button--close-modal {
+  margin-top: 20px;
 }
 
 @media #{$mq-retina} {
@@ -305,12 +302,10 @@ body {
     font-size: 16px;
   }
 }
-
 @media #{$mq-small} {
   // :root {
   //   font-size: 25px;
   // }
-
   .round-icon__icon {
     width: 56%;
   }
