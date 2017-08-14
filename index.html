@@ -30,17 +30,17 @@
             </div>
           </div>
         </div>
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="header__content">
-                <h1 class="header__title">Найди место и&nbsp;получи деньги!</h1>
-                <hr class="divider--primary">
-                <p class="header__text">Найди место под кофейню UTRO и получи вознаграждение до 1500$</p>
-                <a href="#feedback-form"><button class="button button--primary button-centered">Забрать вознаграждение</button></a>
-              </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="header__content">
+              <h1 class="header__title">Найди место и&nbsp;получи деньги!</h1>
+              <hr class="divider--primary">
+              <p class="header__text">Найди место под кофейню UTRO и получи вознаграждение до 1500$</p>
+              <a href="#feedback-form"><button class="button button--primary button-centered">Забрать вознаграждение</button></a>
             </div>
           </div>
         </div>
+      </div>
     </header>
 
     <div class="container container--main">
@@ -58,27 +58,32 @@
             <p class="round-icon__caption">
               От 2 до 10 кв. м площади
             </p>
-          </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
             <img src="images/shop-01.svg" alt="" class="round-icon__icon">
             <p class="round-icon__caption">
               В торговых центрах и бизнес центрах
             </p>
-          </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
             <img src="images/ball-01.svg" alt="" class="round-icon__icon">
             <p class="round-icon__caption">
               В учебных заведениях и спортивных комплексах
             </p>
-          </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
             <img src="images/people-01.svg" alt="" class="round-icon__icon">
             <p class="round-icon__caption">
               В местах с большим скоплением людей
             </p>
-          </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
             <img src="images/rozetka-01.svg" alt="" class="round-icon__icon">
             <p class="round-icon__caption">
               Доступная мощность: 3 кВт электроэнергии
             </p>
-          </div><div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 round-icon">
             <img src="images/water-01.svg" alt="" class="round-icon__icon">
             <p class="round-icon__caption">
               Подвод воды не обязателен
@@ -167,42 +172,29 @@
 
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-centered">
-            <form action="" class="feedback-form" data-toggle="validator" method="POST">
+            <form action="send.php" class="feedback-form" data-toggle="validator" method="POST" enctype="multipart/form-data">
 
               <div class="feedback-form__element-wrap form-group">
-                <input type="text"
-                      name="name"
-                      placeholder="Ваше имя"
-                      class="feedback-form__element"
-                      required
-                      data-required-error="Пожалуйста, укажите свое имя">
+                <input type="text" name="name" placeholder="Ваше имя" class="feedback-form__element" required data-required-error="Пожалуйста, укажите свое имя">
                 <div class="help-block with-errors"></div>
               </div>
 
               <div class="feedback-form__element-wrap  form-group">
-                <input type="text"
-                name="phone"
-                placeholder="Ваш телефон"
-                class="feedback-form__element feedback-form__element--phone"
-                required
-                data-required-error="Пожалуйста, укажите свой номер телефона"
-                pattern="^\+375 \((25|29|33|44)\) [0-9]{3}-[0-9]{2}-[0-9]{2}$"
-                data-pattern-error="Проверьте введенные данные. Код номера должен иметь одно из значений: 29, 33, 44, 25">
-                <div class="help-block with-errors"></div>
-              </div>
-
-              <div class="feedback-form__element-wrap form-group" name="photo">
-                <textarea name="description"
-                          rows="10"
-                          placeholder="Описание места"
-                          class="feedback-form__element feedback-form__element--fixed-height"
-                          required data-required-error="Пожалуйста, опишите найденное вами место" data-minlength="30"
-                          data-minlength-error="Описание должно содержать не менее 30 символов."></textarea>
+                <input type="text" name="phone" placeholder="Ваш телефон" class="feedback-form__element feedback-form__element--phone" required data-required-error="Пожалуйста, укажите свой номер телефона" pattern="^\+375 \((25|29|33|44)\) [0-9]{3}-[0-9]{2}-[0-9]{2}$"
+                  data-pattern-error="Проверьте введенные данные. Код номера должен иметь одно из значений: 29, 33, 44, 25">
                 <div class="help-block with-errors"></div>
               </div>
 
               <div class="feedback-form__element-wrap form-group">
-                <!-- <input type="file" class="feedback-form__element--photo" name="photo"> -->
+                <textarea name="description" rows="10" placeholder="Описание места" class="feedback-form__element feedback-form__element--fixed-height" required data-required-error="Пожалуйста, опишите найденное вами место" data-minlength="30" data-minlength-error="Описание должно содержать не менее 30 символов."></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+
+              <div class="feedback-form__element-wrap form-group">
+                <label for="photo" class="feedback-form__element--photo">
+                  Прикрепить файл
+                <input type="file" id="photo" class="--hidden-element" name="photo" accept="image/*">
+              </label>
               </div>
 
               <div class="feedback-form__submit feedback-form__element-wrap">
@@ -210,56 +202,53 @@
               </div>
 
             </form>
-            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <footer class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 footer__contact">
-              +375 29 167 72 02
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 footer__contact">
-              utrocoffee.by
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 footer__contact">
-              mesto@utrocoffee.by
-            </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 footer__contact">
+            +375 29 167 72 02
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 footer__contact">
+            utrocoffee.by
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 footer__contact">
+            mesto@utrocoffee.by
           </div>
         </div>
-      </footer>
+      </div>
+    </footer>
 
+    <div class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content modal--success">
+          <h1>Спасибо!</h1>
+          <p class="js-modal-text">
+            <!-- text is set in php file, gets with ajax response -->
+          </p>
 
- <!-- <button onclick="$('modal--success').modal('show');">asdf</button> -->
-
-<div class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content modal--success">
-      <h1>Спасибо!</h1>
-        <p>
-          Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.
-        </p>
-
-        <button class="button button--close-modal">Закрыть</button>
+          <button class="button button--close-modal">Закрыть</button>
+        </div>
+      </div>
     </div>
+
+
+
+
+
+
   </div>
-</div>
 
-
-
-
-
-
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
-    <script src="assets/js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="assets/js/validator.js" charset="utf-8"></script>
-    <script src="assets/js/slick.min.js" charset="utf-8"></script>
-    <script src="assets/js/jquery.maskedinput.min.js" charset="utf-8"></script>
-    <script src="assets/js/master.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+  <script src="assets/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="assets/js/validator.js" charset="utf-8"></script>
+  <script src="assets/js/slick.min.js" charset="utf-8"></script>
+  <script src="assets/js/jquery.maskedinput.min.js" charset="utf-8"></script>
+  <script src="assets/js/master.js" charset="utf-8"></script>
 </body>
 
 </html>

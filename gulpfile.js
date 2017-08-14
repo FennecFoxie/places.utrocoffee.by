@@ -5,7 +5,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
 var autoprefixerOptions = {
-  browsers: ['last 2 versions', '> 0.05%', 'Firefox ESR Safari']
+  browsers: ['last 2 versions', '> 0.05%', 'Firefox ESR']
 };
 
 

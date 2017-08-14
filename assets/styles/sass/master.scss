@@ -248,6 +248,10 @@ body {
 }
 // FORM component
 
+.feedback-form__element-wrap {
+    text-align: center;
+}
+
 .feedback-form__element {
   width: 100%;
   padding: 15px;
@@ -273,6 +277,23 @@ body {
   font-size: $placeholder-font-size;
 }
 
+.--hidden-element {
+  display: none !important;
+}
+
+.feedback-form__element--photo {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+
+    background: $primary;
+    border-bottom: 3px solid $primary-dark;
+    color: $simple-background;
+    border-radius: $border-raduis;
+
+    font-weight: normal;
+    cursor: pointer;
+}
+
 .footer {
   box-shadow: 0 0 15px 0 $shadow-color;
   background-image: url("../../../images/cover-image.png");
@@ -286,6 +307,8 @@ body {
     text-align: nth($text-align, $i);
   }
 }
+
+
 
 .modal--success {
   padding: 40px 10%;
