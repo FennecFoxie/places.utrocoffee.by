@@ -3,8 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 	$subject = "Места - UTRO Coffee";
-	// $to = "mesto@utrocoffee.by";
-	$to = "alice.levkovich@gmail.com";
+	$to = "mesto@utrocoffee.by";
 
 	$message = "";
 
