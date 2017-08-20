@@ -228,13 +228,17 @@ body {
 
 .feedback-form__element--photo {
   padding: 10px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   background: #08b595;
   border-bottom: 3px solid #066c5a;
   color: #ffffff;
   border-radius: 7px;
   font-weight: normal;
   cursor: pointer; }
+
+.feedback-form__element--filename {
+  font-size: 0.8rem;
+  margin-bottom: 20px; }
 
 .footer {
   -webkit-box-shadow: 0 0 15px 0 rgba(20, 10, 2, 0.3);
